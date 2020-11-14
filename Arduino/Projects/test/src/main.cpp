@@ -1,15 +1,24 @@
 #include "Arduino.h"
-#include "digitalpinclass.h"
+#include "digitalPinClassOutput.h"
+#include "digitalPinClassInput.h"
 
-digitalPinClass LED(4);
+digitalPinClassOutput LED(4);
+digitalPinClassInput button(8);
 
 void setup()
 {
 
 }
 
-void begin()
+void loop()
 {
-    LED.toggle_Status();
-    delay(1000);
+    if(button.is_changed() == true)
+    {
+        LED.toggle_Status();
+        delay(500);
+    }
+    else
+    {
+        delay(50);
+    } 
 }

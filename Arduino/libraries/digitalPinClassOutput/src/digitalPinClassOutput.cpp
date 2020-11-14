@@ -1,13 +1,13 @@
-#include "digitalpinclass.h"
+#include "digitalPinClassOutput.h"
 
-digitalPinClass::digitalPinClass(int pinNum)
+digitalPinClassOutput::digitalPinClassOutput(int pinNum)
 {
     this->pin = pinNum;
     this->status = false;
     pinMode(pin, OUTPUT);
 }
 
-void digitalPinClass::set_LOW()
+void digitalPinClassOutput::set_LOW()
 {
     if (this->status == true)
     {
@@ -16,7 +16,7 @@ void digitalPinClass::set_LOW()
     }
 }
 
-void digitalPinClass::set_HIGH()
+void digitalPinClassOutput::set_HIGH()
 {
     if (this->status == false)
     {
@@ -25,7 +25,7 @@ void digitalPinClass::set_HIGH()
     }
 }
 
-void digitalPinClass::toggle_Status()
+void digitalPinClassOutput::toggle_Status()
 {
     if (this->status == true)
     {
@@ -37,4 +37,9 @@ void digitalPinClass::toggle_Status()
         this->status = true;
         digitalWrite(pin, HIGH);
     }
+}
+
+bool digitalPinClassOutput::get_status()
+{
+    return this->status;
 }

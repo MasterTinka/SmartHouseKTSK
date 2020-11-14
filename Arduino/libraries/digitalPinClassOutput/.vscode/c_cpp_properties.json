@@ -6,12 +6,8 @@
         {
             "name": "Linux",
             "includePath": [
-                "/home/leonid/Программирование/SmartHouseKTSK/Arduino/Projects/test/include",
-                "/home/leonid/Программирование/SmartHouseKTSK/Arduino/Projects/test/src",
-                "/home/leonid/Программирование/SmartHouseKTSK/Arduino/libraries/digitalPinClassOutput/include",
-                "/home/leonid/Программирование/SmartHouseKTSK/Arduino/libraries/digitalPinClassOutput/src",
-                "/home/leonid/Программирование/SmartHouseKTSK/Arduino/libraries/digitalPinClassInput/include",
-                "/home/leonid/Программирование/SmartHouseKTSK/Arduino/libraries/digitalPinClassInput/src",
+                "/home/leonid/Программирование/SmartHouseKTSK/Arduino/libraries/digitalPinClass/include",
+                "/home/leonid/Программирование/SmartHouseKTSK/Arduino/libraries/digitalPinClass/src",
                 "/home/leonid/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "/home/leonid/.platformio/packages/framework-arduino-avr/variants/standard",
                 "/home/leonid/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
@@ -25,12 +21,8 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "/home/leonid/Программирование/SmartHouseKTSK/Arduino/Projects/test/include",
-                    "/home/leonid/Программирование/SmartHouseKTSK/Arduino/Projects/test/src",
-                    "/home/leonid/Программирование/SmartHouseKTSK/Arduino/libraries/digitalPinClassOutput/include",
-                    "/home/leonid/Программирование/SmartHouseKTSK/Arduino/libraries/digitalPinClassOutput/src",
-                    "/home/leonid/Программирование/SmartHouseKTSK/Arduino/libraries/digitalPinClassInput/include",
-                    "/home/leonid/Программирование/SmartHouseKTSK/Arduino/libraries/digitalPinClassInput/src",
+                    "/home/leonid/Программирование/SmartHouseKTSK/Arduino/libraries/digitalPinClass/include",
+                    "/home/leonid/Программирование/SmartHouseKTSK/Arduino/libraries/digitalPinClass/src",
                     "/home/leonid/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "/home/leonid/.platformio/packages/framework-arduino-avr/variants/standard",
                     "/home/leonid/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
