@@ -4,7 +4,9 @@ digitalPinClassInput::digitalPinClassInput(int pinNum)  // Конструкто�
 {
     this->pin = pinNum;                                 // Сохраняется номер пина
 
-    pinMode(pin, INPUT_PULLUP);                                // Ставится режим чтения
+    pinMode(pin, INPUT_PULLUP);                         // Ставится режим чтения
+
+    this->lastState = !bool(digitalRead(pin));          // Запись текущего состояния
 }
 
 bool digitalPinClassInput::read_data()                  // Чтение данных
@@ -15,16 +17,16 @@ bool digitalPinClassInput::read_data()                  // Чтение данн
     else
         lastState = false;   
      
-    return !lastState;                                   // Возврат прочтённого состояния, инверсированного для нормальной работы режима input_pullup
+    return !lastState;                                  // Возврат прочтённого состояния, инверсированного для нормальной работы режима input_pullup
 }
 
 bool digitalPinClassInput::is_changed()                 // Изменилось ли состояние        
 {
-    bool cur_state = !(bool(digitalRead(pin)));            // Чтение данных о состоянии пина
+    bool cur_state = !(bool(digitalRead(pin)));         // Чтение данных о состоянии пина
 
     if(lastState != cur_state)                          // Если состояние изменилось           
     {
-        lastState = cur_state;                         // Сохраняется состояние
+        lastState = cur_state;                          // Сохраняется состояние
         return true;                                    // Возвращается true
     }
     else                                                // В ином случае
@@ -32,4 +34,9 @@ bool digitalPinClassInput::is_changed()                 // Изменилось 
         return false;                                   // Возвращается false
     }
     
+}
+
+int digitalPinClassInput::get_pin()
+{
+    return pin;
 }

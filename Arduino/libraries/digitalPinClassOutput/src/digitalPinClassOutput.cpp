@@ -43,3 +43,8 @@ bool digitalPinClassOutput::get_status()
 {
     return this->status;
 }
+
+int digitalPinClassOutput::get_pin()
+{
+    return this->pin;
+}

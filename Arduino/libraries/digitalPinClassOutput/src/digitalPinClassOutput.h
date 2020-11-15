@@ -11,7 +11,8 @@ class digitalPinClassOutput               //Реализация класса д
         void set_LOW();             // Выключить
         void toggle_Status();       // Поменять статус
         // Геттеры
-        bool get_status();       
+        bool get_status();
+        int get_pin();       
     private:
         int pin;
         bool status;
