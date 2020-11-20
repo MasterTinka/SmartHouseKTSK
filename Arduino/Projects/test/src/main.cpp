@@ -1,24 +1,24 @@
 #include "Arduino.h"
-#include "digitalPinClassOutput.h"
-#include "digitalPinClassInput.h"
+#include "analogPinClassOutput.h"
 
-digitalPinClassOutput LED(4);
-digitalPinClassInput button(8);
+analogPinClassOutput test_pin(3);
 
 void setup()
 {
-
+    Serial.begin(9600);
 }
 
 void loop()
 {
-    if(button.is_changed() == true)
+    while(!test_pin.is_max())
     {
-        LED.toggle_Status();
-        delay(500);
+        test_pin.rise_up();
+        delay(100);
     }
-    else
+    while (!test_pin.is_min())
     {
-        delay(50);
-    } 
+        test_pin.put_down();       
+        delay(200);
+    }
+    delay(1000);
 }
