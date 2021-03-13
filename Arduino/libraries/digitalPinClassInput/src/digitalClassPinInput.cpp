@@ -1,8 +1,11 @@
 #include "digitalPinClassInput.h"
 
-digitalPinClassInput::digitalPinClassInput(int pinNum)  // Конструктор, выполняется при запуске
+digitalPinClassInput::digitalPinClassInput(int pinNum, bool conterbounced = true, bool reversed = true)  // Конструктор, выполняется при запуске
 {
     this->pin = pinNum;                                 // Сохраняется номер пина
+    this->conterBounce = conterbounced;                 // Сохранение настроек антидребезга
+    this->reverse = reversed;                           // И настроек инвертирования
+
 
     pinMode(pin, INPUT_PULLUP);                         // Ставится режим чтения
 
@@ -11,13 +14,29 @@ digitalPinClassInput::digitalPinClassInput(int pinNum)  // Конструкто�
 
 bool digitalPinClassInput::read_data()                  // Чтение данных
 {
+    bool state;
+
     if(digitalRead(pin) == HIGH)                               
         lastState = true;                               
-
     else
-        lastState = false;   
-     
-    return !lastState;                                  // Возврат прочтённого состояния, инверсированного для нормальной работы режима input_pullup
+        lastState = false;
+
+    if(this->conterBounce == true)
+    {
+        delay(5);
+        if(digitalRead(pin) == HIGH)                               
+            state = true;                               
+        else
+            state = false;
+        
+        lastState &= state;
+    }   
+    
+    if(this->reverse == true)
+        return !lastState;                                  // Возврат прочтённого состояния, инверсированного для нормальной работы режима input_pullup
+    else
+        return lastState;                                   // Или не инвертированного, если reverse == false 
+    
 }
 
 bool digitalPinClassInput::is_changed()                 // Изменилось ли состояние        
